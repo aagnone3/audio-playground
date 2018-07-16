@@ -1,0 +1,7 @@
+#!/bin/bash
+fn=${1}
+tmpfn=$(mktemp)
+cp ${fn} ${tmpfn}
+#ffmpeg -i ${tmpfn} -b 16 -r 8000 ${fn}
+sox ${tmpfn} ${fn} rate 8k gain -3
+rm ${tmpfn}
